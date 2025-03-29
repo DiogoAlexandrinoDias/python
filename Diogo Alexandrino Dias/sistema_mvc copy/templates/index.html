@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina inicial</title>
+</head>
+<body>
+    <h1>Lista de produtos</h1>
+    <a href="/criar">Novo Produto</a>
+
+    <ul>
+        {% for produto in produtos %}
+             <li>
+                 {{produto['nome'] }} - {{produto['preco'] }}
+                 <button>
+                     <a href="{{ url_for('produto.editar', id=produto['id']) }}">Editar</a>
+                 </button>
+                 <button>
+                     <a href="{{ url_for('produto.deletar', id=produto['id']) }}">Deletar</a>
+                 </button>
+             </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

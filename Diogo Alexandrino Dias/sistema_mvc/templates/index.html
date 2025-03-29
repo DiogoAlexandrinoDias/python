@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #333; }
+        .novo-produto { display: inline-block; margin-bottom: 20px; padding: 8px 15px; background: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+        .produto-item { list-style: none; padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .produto-info { flex: 1; }
+        .produto-acoes a { margin-left: 10px; padding: 5px 10px; text-decoration: none; border-radius: 3px; }
+        .editar { background: #ffc107; color: black; }
+        .deletar { background: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <a href="/criar" class="novo-produto">+ Novo Produto</a>
+
+    <ul>
+        {% for produto in produtos %}
+        <li class="produto-item">
+            <div class="produto-info">
+                {{produto['nome']}} - R$ {{produto['preco']}}
+            </div>
+            <div class="produto-acoes">
+                <a href="{{ url_for('produto.editar', id=produto['id']) }}" class="editar">Editar</a>
+                <a href="{{ url_for('produto.deletar', id=produto['id']) }}" class="deletar">Deletar</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

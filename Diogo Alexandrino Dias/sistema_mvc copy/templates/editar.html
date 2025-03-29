@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <form method="post">
+        Nome: <input value="{{ produto['nome'] }}" type="text" name="nome" /> <br />
+        Preço: <input value="{{ produto ['preco'] }}" type="number" name="preco" /> <br />
+        <button type="submit">Editar produto</button>
+    </form>
+    <a href="/">Voltar</a>
+</body>
+</html>
